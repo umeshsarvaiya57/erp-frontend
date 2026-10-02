@@ -17,7 +17,8 @@ import {
   BarChart3, 
   Users, 
   Settings,
-  Sparkles
+  Sparkles,
+  MessageSquare
 } from 'lucide-react';
 
 export const MobileSidebar = ({ isOpen, onClose }) => {
@@ -49,12 +50,13 @@ export const MobileSidebar = ({ isOpen, onClose }) => {
       ]
     },
     {
-      title: 'Finance & Team',
+      title: 'Finance & Setup',
       items: [
         { label: 'GST Reports', path: '/gst', icon: <FileSpreadsheet className="h-4 w-4" />, permission: 'gst.view' },
         { label: 'Business Reports', path: '/reports', icon: <BarChart3 className="h-4 w-4" />, permission: 'reports.view' },
         { label: 'Team Members', path: '/employees', icon: <Users className="h-4 w-4" />, permission: 'employees.view' },
-        { label: 'Business Setup', path: '/settings/business', icon: <Settings className="h-4 w-4" />, permission: 'settings.view' },
+        { label: 'WhatsApp Automation', path: '/settings/whatsapp', icon: <MessageSquare className="h-4 w-4 text-emerald-500" />, permission: 'settings.view' },
+        { label: 'Business Profile', path: '/settings/business', icon: <Settings className="h-4 w-4" />, permission: 'settings.view' },
       ]
     }
   ];

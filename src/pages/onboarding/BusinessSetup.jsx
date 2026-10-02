@@ -53,7 +53,14 @@ export const BusinessSetup = () => {
   };
 
   const handleSubmit = (values) => {
-    updateBusiness(values, {
+    const cleanedValues = { ...values };
+    if (cleanedValues.gstNumber) {
+      cleanedValues.gstNumber = cleanedValues.gstNumber.trim().toUpperCase();
+    }
+    if (cleanedValues.panNumber) {
+      cleanedValues.panNumber = cleanedValues.panNumber.trim().toUpperCase();
+    }
+    updateBusiness(cleanedValues, {
       onSuccess: () => {
         navigate('/dashboard', { replace: true });
       },
@@ -250,9 +257,12 @@ export const BusinessSetup = () => {
                     label="GST Number (GSTIN)"
                     name="gstNumber"
                     value={values.gstNumber || ''}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      const upper = e.target.value.toUpperCase().replace(/\s/g, '');
+                      setFieldValue('gstNumber', upper);
+                    }}
                     onBlur={handleBlur}
-                    placeholder="15-digit GSTIN"
+                    placeholder="e.g. 27AAAAA0000A1Z5"
                     error={touched.gstNumber && errors.gstNumber}
                   />
 
@@ -260,9 +270,12 @@ export const BusinessSetup = () => {
                     label="PAN Number"
                     name="panNumber"
                     value={values.panNumber || ''}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      const upper = e.target.value.toUpperCase().replace(/\s/g, '');
+                      setFieldValue('panNumber', upper);
+                    }}
                     onBlur={handleBlur}
-                    placeholder="10-digit PAN"
+                    placeholder="e.g. ABCDE1234F"
                     error={touched.panNumber && errors.panNumber}
                   />
 
@@ -270,7 +283,7 @@ export const BusinessSetup = () => {
                     label="Invoice Number Prefix"
                     name="invoicePrefix"
                     value={values.invoicePrefix}
-                    onChange={handleChange}
+                    onChange={(e) => setFieldValue('invoicePrefix', e.target.value.toUpperCase())}
                     onBlur={handleBlur}
                     placeholder="INV"
                     error={touched.invoicePrefix && errors.invoicePrefix}

@@ -68,4 +68,21 @@ export const useSale = (id) => {
     isError: saleQuery.isError,
   };
 };
+
+export const usePublicSale = (id) => {
+  const publicSaleQuery = useQuery({
+    queryKey: ['public-sale', id],
+    queryFn: () => salesApi.getPublicSaleById(id),
+    enabled: !!id,
+    select: (res) => res.data,
+  });
+
+  return {
+    sale: publicSaleQuery.data,
+    isLoading: publicSaleQuery.isLoading,
+    isError: publicSaleQuery.isError,
+    error: publicSaleQuery.error,
+  };
+};
+
 export default useSales;

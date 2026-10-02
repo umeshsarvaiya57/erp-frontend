@@ -82,7 +82,12 @@ export const SalesForm = () => {
   const handleFormSubmit = (values) => {
     createSale(values, {
       onSuccess: (res) => {
-        navigate(`/invoices/${res.data.data._id}`);
+        const saleId = res?.data?._id || res?._id || res?.data?.data?._id;
+        if (saleId) {
+          navigate(`/invoices/${saleId}?whatsapp=true`);
+        } else {
+          navigate('/sales');
+        }
       },
     });
   };

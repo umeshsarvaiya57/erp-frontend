@@ -14,6 +14,7 @@ import { CustomersSuppliers } from '../pages/customers/CustomersSuppliers';
 import { SalesList } from '../pages/sales/SalesList';
 import { SalesForm } from '../pages/sales/SalesForm';
 import { InvoicePrint } from '../pages/sales/InvoicePrint';
+import { PublicInvoiceView } from '../pages/public/PublicInvoiceView';
 import { PurchasesList } from '../pages/purchases/PurchasesList';
 import { PurchasesForm } from '../pages/purchases/PurchasesForm';
 import { LeadsManager } from '../pages/crm/LeadsManager';
@@ -21,6 +22,7 @@ import { TimelineActivities } from '../pages/crm/TimelineActivities';
 import { EmployeesManager } from '../pages/employees/EmployeesManager';
 import { BusinessReports } from '../pages/reports/BusinessReports';
 import { BusinessProfile } from '../pages/settings/BusinessProfile';
+import { WhatsAppGatewaySettings } from '../pages/settings/WhatsAppGatewaySettings';
 import { AppLayout } from '../components/layout/AppLayout';
 import { ProtectedRoute } from './ProtectedRoute';
 import { PublicRoute } from './PublicRoute';
@@ -28,7 +30,11 @@ import { PublicRoute } from './PublicRoute';
 export const AppRoutes = () => {
   return (
     <Routes>
-      {/* Public Guest Routes */}
+      {/* Public Customer Routes (No Login Required) */}
+      <Route path="/public/invoices/:id" element={<PublicInvoiceView />} />
+      <Route path="/invoices/public/:id" element={<PublicInvoiceView />} />
+
+      {/* Public Guest Auth Routes */}
       <Route
         path="/login"
         element={
@@ -104,6 +110,7 @@ export const AppRoutes = () => {
         {/* Management & Settings */}
         <Route path="/employees" element={<EmployeesManager />} />
         <Route path="/settings/business" element={<BusinessProfile />} />
+        <Route path="/settings/whatsapp" element={<WhatsAppGatewaySettings />} />
       </Route>
 
       {/* Super Admin Management Workspace */}

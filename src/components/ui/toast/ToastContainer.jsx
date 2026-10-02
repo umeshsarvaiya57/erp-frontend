@@ -12,12 +12,19 @@ export const ToastContainer = () => {
   }, []);
 
   return (
-    <div className="fixed top-4 right-4 z-[9999] flex flex-col gap-2 w-full max-w-[calc(100vw-2rem)] sm:max-w-sm">
+    <aside
+      aria-live="polite"
+      aria-label="Notifications"
+      className="fixed top-5 right-5 z-[99999] flex flex-col gap-3 w-full max-w-[calc(100vw-2.5rem)] sm:max-w-md pointer-events-none"
+    >
       {toasts.map((toast) => (
-        <ToastItem key={toast.id} toast={toast} />
+        <div key={toast.id} className="pointer-events-auto transition-all duration-300 ease-out animate-in slide-in-from-top-2 fade-in">
+          <ToastItem toast={toast} />
+        </div>
       ))}
-    </div>
+    </aside>
   );
 };
 
 export default ToastContainer;
+
