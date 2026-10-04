@@ -23,6 +23,7 @@ import { EmployeesManager } from '../pages/employees/EmployeesManager';
 import { BusinessReports } from '../pages/reports/BusinessReports';
 import { BusinessProfile } from '../pages/settings/BusinessProfile';
 import { WhatsAppGatewaySettings } from '../pages/settings/WhatsAppGatewaySettings';
+import { BillFormatSettings } from '../pages/settings/BillFormatSettings';
 import { AppLayout } from '../components/layout/AppLayout';
 import { ProtectedRoute } from './ProtectedRoute';
 import { PublicRoute } from './PublicRoute';
@@ -111,6 +112,7 @@ export const AppRoutes = () => {
         <Route path="/employees" element={<EmployeesManager />} />
         <Route path="/settings/business" element={<BusinessProfile />} />
         <Route path="/settings/whatsapp" element={<WhatsAppGatewaySettings />} />
+        <Route path="/settings/bill-format" element={<BillFormatSettings />} />
       </Route>
 
       {/* Super Admin Management Workspace */}

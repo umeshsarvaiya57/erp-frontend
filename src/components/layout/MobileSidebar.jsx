@@ -15,6 +15,7 @@ import {
   History, 
   FileSpreadsheet, 
   BarChart3, 
+  Receipt,
   Users, 
   Settings,
   Sparkles,
@@ -54,6 +55,7 @@ export const MobileSidebar = ({ isOpen, onClose }) => {
       items: [
         { label: 'GST Reports', path: '/gst', icon: <FileSpreadsheet className="h-4 w-4" />, permission: 'gst.view' },
         { label: 'Business Reports', path: '/reports', icon: <BarChart3 className="h-4 w-4" />, permission: 'reports.view' },
+        { label: 'Bill Format & Templates', path: '/settings/bill-format', icon: <Receipt className="h-4 w-4 text-emerald-500" />, permission: 'settings.view' },
         { label: 'Team Members', path: '/employees', icon: <Users className="h-4 w-4" />, permission: 'employees.view' },
         { label: 'WhatsApp Automation', path: '/settings/whatsapp', icon: <MessageSquare className="h-4 w-4 text-emerald-500" />, permission: 'settings.view' },
         { label: 'Business Profile', path: '/settings/business', icon: <Settings className="h-4 w-4" />, permission: 'settings.view' },

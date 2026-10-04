@@ -256,7 +256,7 @@ export const CustomersSuppliers = () => {
                   error={touched.mobile && errors.mobile}
                   required
                 />
-                <TextField
+                {/* <TextField
                   label="Email Address"
                   name="email"
                   type="email"
@@ -274,7 +274,7 @@ export const CustomersSuppliers = () => {
                   onBlur={handleBlur}
                   placeholder="6-digit pincode"
                   error={touched.pincode && errors.pincode}
-                />
+                /> */}
                 <TextField
                   label="City"
                   name="city"
@@ -284,7 +284,7 @@ export const CustomersSuppliers = () => {
                   placeholder="City"
                   error={touched.city && errors.city}
                 />
-                <TextField
+                {/* <TextField
                   label="State"
                   name="state"
                   value={values.state}
@@ -341,7 +341,7 @@ export const CustomersSuppliers = () => {
                     placeholder="Customer specs, credit history notes..."
                     error={touched.notes && errors.notes}
                   />
-                </div>
+                </div> */}
               </div>
 
               <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100 shrink-0">
