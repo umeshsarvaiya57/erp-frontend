@@ -1,13 +1,7 @@
 import axios from 'axios';
 
-const getBaseUrl = () => {
-  const envUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-  const cleanUrl = envUrl.replace(/\/$/, '');
-  return cleanUrl.endsWith('/api') ? cleanUrl : `${cleanUrl}/api`;
-};
-
 const axiosClient = axios.create({
-  baseURL: getBaseUrl(),
+  baseURL: import.meta.env.VITE_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -41,17 +35,17 @@ axiosClient.interceptors.response.use(
   },
   (error) => {
     const originalRequest = error.config;
-    
+
     if (error.response) {
       const { status, data } = error.response;
-      
+
       // 401 Unauthorized handling: notify AuthContext and clean credentials
       if (status === 401 && !originalRequest._retry) {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         window.dispatchEvent(new Event('auth-unauthorized'));
       }
-      
+
       // Reject with custom error response structure
       return Promise.reject({
         message: data.message || 'Something went wrong',
@@ -59,7 +53,7 @@ axiosClient.interceptors.response.use(
         status,
       });
     }
-    
+
     return Promise.reject({
       message: 'Network error. Please check your connection.',
       errorCode: 'NETWORK_ERROR',
