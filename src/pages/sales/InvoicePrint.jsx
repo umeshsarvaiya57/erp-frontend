@@ -170,7 +170,7 @@ export const InvoicePrint = () => {
               <div className="space-y-3">
                 {sale?.businessId?.logo ? (
                   <img 
-                    src={sale.businessId.logo.startsWith('/') ? `${import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}${sale.businessId.logo}` : sale.businessId.logo} 
+                    src={sale.businessId.logo.startsWith('/') ? `${import.meta.env.VITE_BACKEND_URL}${sale.businessId.logo}` : sale.businessId.logo} 
                     alt="business logo" 
                     className="h-12 w-auto object-contain print:h-10" 
                   />

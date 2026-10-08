@@ -43,7 +43,7 @@ export const Header = ({ onMenuClick }) => {
           trigger={
             <div className="flex items-center gap-2 hover:opacity-85 transition-opacity">
               <Avatar
-                src={user?.business?.logo ? (user.business.logo.startsWith('/') ? `${import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}${user.business.logo}` : user.business.logo) : ''}
+                src={user?.business?.logo ? (user.business.logo.startsWith('/') ? `${import.meta.env.VITE_BACKEND_URL}${user.business.logo}` : user.business.logo) : ''}
                 name={user?.name}
                 size="sm"
               />

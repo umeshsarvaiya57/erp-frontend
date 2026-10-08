@@ -83,7 +83,7 @@ export const PublicInvoiceView = () => {
 
   const business = sale.businessId || {};
   const customer = sale.customerId || {};
-  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const logoUrl = business.logo
     ? business.logo.startsWith('http') ? business.logo : `${backendUrl}${business.logo}`
     : null;

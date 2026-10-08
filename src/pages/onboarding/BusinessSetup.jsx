@@ -91,7 +91,7 @@ export const BusinessSetup = () => {
               <Card title="Business Logo" subtitle="Upload your company or shop logo">
                 <div className="flex items-center gap-6 flex-wrap">
                   <Avatar
-                    src={values.logo ? (values.logo.startsWith('/') ? `${import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}${values.logo}` : values.logo) : ''}
+                    src={values.logo ? (values.logo.startsWith('/') ? `${import.meta.env.VITE_BACKEND_URL}${values.logo}` : values.logo) : ''}
                     name={values.name || 'Business'}
                     size="xl"
                   />

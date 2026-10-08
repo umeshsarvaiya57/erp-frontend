@@ -34,7 +34,7 @@ export const BusinessProfile = () => {
     if (business?.logo) {
       setLogoPreview(
         business.logo.startsWith('/')
-          ? `${import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}${business.logo}`
+          ? `${import.meta.env.VITE_BACKEND_URL}${business.logo}`
           : business.logo
       );
     } else {

@@ -192,7 +192,7 @@ export const AdminDashboard = () => {
               <tr key={biz._id} className="hover:bg-slate-50 transition-colors">
                 <td className="px-6 py-4 whitespace-nowrap">
                   <Avatar
-                    src={biz.logo ? (biz.logo.startsWith('/') ? `${import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'}${biz.logo}` : biz.logo) : ''}
+                    src={biz.logo ? (biz.logo.startsWith('/') ? `${import.meta.env.VITE_BACKEND_URL}${biz.logo}` : biz.logo) : ''}
                     name={biz.name}
                     size="sm"
                   />
